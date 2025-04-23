@@ -1,2 +1,11 @@
 @import "tailwindcss";
 
+.bg-acento {
+  --tw-bg-opacity: 1;
+  background-color: rgb(76 175 80 / var(--tw-bg-opacity)) /* #4caf50 */;
+}
+
+.hover\:bg-acentohover:hover {
+  --tw-bg-opacity: 1;
+  background-color: rgb(67 144 70 / var(--tw-bg-opacity)) /* #439046 */;
+}
