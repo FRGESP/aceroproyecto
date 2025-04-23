@@ -6,7 +6,7 @@ function LoginForm() {
         <form className='flex flex-col  w-lg gap-4' onSubmit={() => console.log('submit')}>
           <div className='flex flex-col gap-2'>
             <label htmlFor="user" className="font-semibold  text-2xl flex-grow text-left">Usuario</label>
-            <input className='border border-black rounded-xl w-full py-3 px-3 text-xl' type="text" placeholder='Ingrese su número de usuario'/>
+            <input className='border border-black rounded-xl w-full py-3 px-3 text-xl' type="text" placeholder='Ingrese su número de usuario' autoFocus/>
           </div>
           <div className='flex flex-col gap-2'>
             <label htmlFor="user" className="font-semibold text-2xl flex-grow text-left">Contraseña</label>
