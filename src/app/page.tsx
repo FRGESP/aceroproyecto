@@ -1,5 +1,10 @@
 import LoginForm from "@/components/loginForm"
-function Loginpage() {
+import { getSession } from "@/actions"
+
+
+async function Loginpage() {
+  const session = await getSession();
+  console.log(session);
   return (
     <div className="bg-gradient-to-r from-gray-300 via-white">
       <div className='flex flex-col items-center justify-center h-[calc(100vh-1.5rem)] '>
