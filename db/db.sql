@@ -391,10 +391,12 @@ INSERT INTO PERSONA (Nombre, ApellidoPaterno, ApellidoMaterno, Telefono, Edad) V
 INSERT INTO EMPLEADO (IdPersona, IdRol, IdEstatus, IdSucursal) VALUES ((SELECT LAST_INSERT_ID()), 3, 1, 1);
 INSERT INTO USUARIO (Contraseña, IdEmpleado) VALUES ('123456', 1);
 
+CALL SP_REGISTRAREMPLEADO('123456','Francisco', 'Leal', 'Medina', '4459721648', '32', 3, 1, 2,1001);
+
+
 
 CALL SP_REGISTRARSUCURSAL('38800', 72856, 'Ejemplo 21', 'Sucursal Ejemplo', 1001);
 
-CALL SP_REGISTRAREMPLEADO('123456','Francisco', 'Leal', 'Medina', '4459721648', '32', 3, 1, 2,1001);
 
 SELECT * FROM DIRECCION;
 SELECT * FROM BITACORA;

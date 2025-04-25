@@ -1,13 +1,13 @@
 import { NextResponse } from "next/server";
 import { conn } from "@/libs/mysql";
 
-export async function GET(request) {
+export async function POST(request) {
+    const req = await request.json();
     try{
-        const response = await conn.query("SELECT NOW();")
-        const data = response[0][0]["NOW()"];
-        return NextResponse.json({ data });
+        const [response] = await conn.query("CALL LOGIN(?,?)", [req.user, req.password]);
+        return NextResponse.json(response[0][0]);
     } catch (error) {
-        console.error("Error executing query:", error);
-        return NextResponse.json({ error: "Internal Server Error" }, { status: 500 });
+        console.error(error);
+        return NextResponse.json({ error: "Error al iniciar sesión" }, { status: 500 });
     }
 }
