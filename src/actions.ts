@@ -42,8 +42,6 @@ export const login = async (credentials: Credentials) => {
 
 export const roles = async () => {
     const session = await getSession();
-    console.log("roles");
-    console.log(session.rol);
     switch (session.rol) {
         case 1:
             redirect("/users/vendedor");
@@ -69,4 +67,8 @@ export const checkRole = async (rol: number) => {
     }
 }
 
-export const logout = async () => { }
+export const logout = async () => {
+    const session = await getSession();
+    session.destroy();
+    redirect("/");
+  };
