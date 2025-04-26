@@ -12,7 +12,6 @@ export async function POST(request) {
         }
 
         [response] = await conn.query("CALL LOGIN_ESTATUS(?,?)", [req.user, 1]);
-        console.log(response[0][0]);
         
         const boolCompare = await comparePassword(req.password, response[0][0].Contraseña);
         if (!boolCompare) {

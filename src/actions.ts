@@ -21,16 +21,13 @@ export const getSession = async () => {
 }
 export const login = async (credentials: Credentials) => {
     const session = await getSession();
-    console.log(credentials);
 
     const response = await axios.post(`${process.env.URL}/api/login`, credentials);
 
     const datos = response.data;
 
-    console.log(datos)
-
     if (datos.RES !== undefined) {
-        return datos.RES;
+        return {"RES": datos.RES};
     } else {
         session.userId = datos.IdUsuario;
         session.rol = datos.IdRol;
